@@ -1,6 +1,6 @@
 # 3D robot modelling 
 
-## :rocket: Roadmap {#roadmap}
+## :rocket: Roadmap
 
 - [x] Pkgs for robot modelling
 - [ ] [Generalitites about Robot modelling using URDF](#robmod)
@@ -10,9 +10,9 @@
 - [ ] Working with the joint_state_publisher and robot_state_publisher for
 - [ ] Creating the robot description for a differential wheeled robot
 - [ ] Creating the robot description for the [explab_2nd][1]
-- [ ] Using the ROS MoveIt! and navigation stack for the assignment 
+  - [ ] Using the ROS MoveIt! and navigation stack for the assignment 
   
-## Main packages for robot modelling {#pkgs}
+## Main packages for robot modelling
 
 ROS uses a standard metapackage for designing and creating models named `robot_model`.
 
@@ -45,7 +45,7 @@ XML Macros (aka Xacro) show some add-ons to improve readbility and for building 
 
 > :warning: xacro files should always be converted in URDF for being employable
 
-## Generalities about robot modelling using URDF {#robmod}
+## Generalities about robot modelling using URDF 
 
 ### checking the model
 
