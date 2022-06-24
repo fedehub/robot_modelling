@@ -3,9 +3,9 @@
 ## :rocket: Roadmap
 
 - [x] Pkgs for robot modelling
-- [ ] [Generalitites about Robot modelling using URDF](#robmod)
-- [ ] Create a pkg for the robot description
-- [ ] Generalities about xacro files
+- [x] [Generalitites about Robot modelling using URDF](#robmod)
+- [x] Create a pkg for the robot description
+- [x] Generalities about xacro files
 - [ ] Creating a robot description for a seven DOF robot manipulator
 - [ ] Working with the joint_state_publisher and robot_state_publisher for
 - [ ] Creating the robot description for a differential wheeled robot
@@ -14,7 +14,7 @@
   
 ## Main packages for robot modelling
 
-ROS uses a standard metapackage for designing and creating models named `robot_model`.
+ROS uses a standard **metapackage** for designing and creating models named `robot_model`.
 
  It basically consists in a set of packages whose purpose is to provide support for the 3D model description reflecting the same features of the real hardware. Those packages are:
 
@@ -41,7 +41,7 @@ The URDF basically consists in a bunch of XML tags, and it represents the kinema
 
 ### about Xacro
 
-XML Macros (aka Xacro) show some add-ons to improve readbility and for building complex robot's descriptions 
+XML Macros (aka Xacro) show some add-ons **to improve readbility** and for building complex robot's descriptions 
 
 > :warning: xacro files should always be converted in URDF for being employable
 
@@ -55,19 +55,19 @@ For cheking the model:
 2. check if the current model contains errors (by parsing the urdf tag and show the potentially occuring error)
 
    ```sh
-   check_urdf nameOfTheModel.urdf
+   check_urdf simple_robot.urdf
    ```
 
 3. for viewing the structure of the robot links and joints graphically (two files will be generated with both `.gv` and `.pdf` extensions)
 
     ```sh
-    urdf_to_graphiz nameOfTheModel.urdf
+    urdf_to_graphiz simple_robot.urdf
     ```
 
 4. For inspecting the model:
    
     ```sh
-    evince nameOfTheModel.pdf
+    evince simple_robot.pdf
     ```
 ### using Rviz 
 
