@@ -1,4 +1,7 @@
-# 3D robot modelling 
+<img align="left" width="80" height="80" src="https://github.com/fedehub.png" alt="github icon">
+<h1>3D robot modelling</h1>
+
+A brief overview about urdf files, xacro files etc aimed at exploring the robot description. 
 
 ## :rocket: Roadmap
 
@@ -11,7 +14,7 @@
 - [ ] Creating the robot description for a differential wheeled robot
 - [ ] Creating the robot description for the [explab_2nd][1]
   - [ ] Using the ROS MoveIt! and navigation stack for the assignment 
-  
+
 ## Main packages for robot modelling
 
 ROS uses a standard **metapackage** for designing and creating models named `robot_model`.
@@ -30,24 +33,93 @@ ROS uses a standard **metapackage** for designing and creating models named `rob
 5. `collada_urdf`
 
 ## About urdf 
- As mentioned in the [previoius section](#pkgs) the URDF parsers are critical for parsing a robot model with some sensors and a working environment 
+As mentioned in the [previoius section](#pkgs) the URDF parsers are critical for parsing a robot model with some sensors and a working environment 
 
- Only robot with links arranged in **tree structure** can be described through URDF. Hence, the robot must have:
+<img width="844" alt="Screenshot 2022-06-25 at 16 44 50" src="https://user-images.githubusercontent.com/61761835/175778596-a07abb4d-38c9-4b2a-9092-8e849e0dfb1f.png">
+
+Only robot with links arranged in **tree structure** can be described through URDF. Hence, the robot must have:
 
  - *rigid* links (flexible ones are not allowed)
  - each link is connected with others by means of *joints* 
 
 The URDF basically consists in a bunch of XML tags, and it represents the kinematic and dynamic description of the robot, its visual represetntation and its collision model  
 
+<img width="844" alt="Screenshot 2022-06-25 at 16 46 32" src="https://user-images.githubusercontent.com/61761835/175778674-19eed518-2340-43ec-b425-72a17bfff162.png">
+
+
 ### about Xacro
 
-XML Macros (aka Xacro) show some add-ons **to improve readbility** and for building complex robot's descriptions 
+XML Macros (aka Xacro) show some add-ons **to improve readbility** and for building complex robot's descriptions. The Xacro allows to create macros inside the robot description quite useful.
+
+<img width="847" alt="Screenshot 2022-06-25 at 16 48 25" src="https://user-images.githubusercontent.com/61761835/175778741-9115c323-4923-4df5-9878-fd46134491bb.png">
 
 > :warning: xacro files should always be converted in URDF for being employable
 
+### using xacros
+
+> use this extension for xacro files, as the first declaration of the file ("name" stands for the name of the robot)
+
+```xml
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="…">
+```
+
+we can define properties, as for constants (to avoid hardcoding), i.e.:
+
+```xml
+<xacro:property name="cluedo_link_length" value="0.4" />
+<xacro:property name="cluedo_link_radius" value="0.3" />
+```
+> So that in the urdf file, we can simply refer to the link's lenght through its name, i.e. in the following …
+
+```xml
+<cylinder length="${cluedo_link_length}" radius="${cluedo_link_radius}"/>
+```
+
+we can also define math expressions using basic operations, i.e.
+
+```xml
+<cylinder length="${cluedo_link_length+2}" radius="${cluedo_link_radius}"/>
+<cylinder length="${cluedo_link_length/3}" radius="${cluedo_link_radius}"/>
+<cylinder length="${cluedo_link_length-0.4}" radius="${cluedo_link_radius}"/>
+```
+
+or we can define macros for describing an i.e. an _inertial matrix_, where the only value that actually changes is its **mass**, taken as parameter
+
+```xml
+<xacro:macro name="my_inertial_matrix" params="mass"> 
+    <inertial>
+        <mass value="${mass}" />
+        <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.2" iyz="0.0" izz="0.5" />
+    </inertial>
+</xacro:macro>
+```
+### 🔀 From Xacro to urdf 
+
+To manually convert the xacro file into urdf, please run
+
+```sh
+  rosrun xacro xacro simple_robot.xacro --inorder > simple_robot_generated.urdf
+```
+
+Otherwise, to include such conversion inside a **launch file**, add these two lines:
+
+```sh
+
+<param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_modelling)/urdf/simple_robot.xacro"/>
+
+```
+Being `robot_modelling` the name of the package
+
+
+
 ## Generalities about robot modelling using URDF 
 
-### checking the model
+### checking the model: step by step
+
+<p align="center">
+  <img width="509" alt="Screenshot 2022-06-25 at 16 58 08" src="https://user-images.githubusercontent.com/61761835/175779158-35e95979-9db9-44f5-8d03-c6e3eb95b6a4.png">
+</p>
 
 For cheking the model:
 
@@ -69,6 +141,24 @@ For cheking the model:
     ```sh
     evince simple_robot.pdf
     ```
+    
+### checking the model: in a wink …
+
+For checking the model, and launch the simulation:
+
+1. enable "execution" permission
+
+    ```sh
+    chmod +x test.py
+    ```    
+  
+3. run the script
+
+    ```sh
+    ./test.py 
+    ```
+
+
 ### using Rviz 
 
 For taking a look at the robot structure by means of RVIZ, please run  
@@ -77,10 +167,70 @@ For taking a look at the robot structure by means of RVIZ, please run
 roslaunch pkgName demo.launch
 ```
 
+## Tags
 
+For further information about tags [click here][3] for the official documentation reference 
 
+robot def:
+
+```urdf
+<?xml version="1.0"?>
+<robot name="<name of the robot>" 
+  <link> … </link>
+  <link> … </link>
+  
+  <joint> … </joint>
+  <joint> … </joint> 
+</robot>
+```
+gazebo plugins inclusion:
+
+```urdf
+<gazebo reference="link_ex"> 
+  <material>Gazebo/Black</material>
+</gazebo>
+```
+
+Link definition 
+> Please note that **collision** and **inertia** parameters are needed, for allowing Gazebo to properly simulate the robot model itsef 
+
+```urdf
+<link name="<name of the link>"> 
+<inertial> 
+<mass value ="…">
+<inertia ixx="…" ixy="…" ixz="…" iyy="…" iyz="…" izz="…"/>
+</inertial> 
+  <visual> 
+    <geometry>
+    < … length="…" radius="…"/> 
+    </geometry>
+    <origin rpy="… … …" xyz="… … …"/>
+  </visual>
+  <collision>
+    <geometry>
+    <cylinder length="…" radius="…"/> 
+    </geometry>
+    <origin rpy="…" xyz="…"/>
+  </collision>
+ </link>
+ ```
+Joint definition
+> Please note that the effort is intended as _the maximum force_ supported by the joint; Moreover, we refer to revolute type joint with **radians**  and to prysmatic type with **meters**
+
+```urdf
+<joint name="<name of the joint>"> 
+  <parent link="…"/>
+  <child link="…"/> 
+  <origin xyz="… … …"/>
+  <axis xyz="… … …" />
+  <calibration … />
+  <dynamics damping … />
+  <limit effort … /> 
+</joint>
+ ```
 
 
 ## References 
 [1]: https://www.github.com/fedehub/explab_2nd
 [2]:  moveit.com
+[3]: http://wiki.ros.org/urdf/XML.
