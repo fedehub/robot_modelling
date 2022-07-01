@@ -288,7 +288,7 @@ chmod +x moveit_fixer.py
 ## References 
 
 [1]: https://www.github.com/fedehub/explab_2nd
-[2]:  moveit.com
+[2]: https://moveit.ros.org
 [3]: http://wiki.ros.org/urdf/XML.
 [4]: https://ros-planning.github.io/moveit_tutorials/
 [5]: https://sir.upc.edu/projects/rostutorials/index.html
