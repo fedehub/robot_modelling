@@ -216,6 +216,45 @@ Link definition
   </collision>
  </link>
  ```
+Please note the choice of the link's geometry is up to you!
+
+<details>
+<summary>  About the geometry tag ... ⬇️ </summary>
+There are three shapes of geometries to choose between:
+ 
+- The **box** shape
+
+  ```
+  <geometry>
+	  <box size="0.4 0.2 0.08" />
+  </geometry>
+
+  ```
+
+- The **cylinder** shape
+
+  ```
+  <geometry>
+	  <cylinder length="0.05" radius="0.2" />
+  </geometry>
+
+  ```
+  
+  
+- The **sphere** shape
+    
+  ```
+  <geometry>
+	  <sphere radius="0.08" />
+  </geometry>
+
+  ```
+
+  
+</details>
+
+ 
+ 
 Joint definition
 > Please note that the effort is intended as _the maximum force_ supported by the joint; Moreover, we refer to revolute type joint with **radians**  and to prysmatic type with **meters**
 
