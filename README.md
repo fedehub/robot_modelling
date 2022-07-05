@@ -280,6 +280,10 @@ Joint definition
 </joint>
 ```
 
+# colors 
+
+🔗 Find [here][7] a Gazebo color palette with xckd color names, by @naoki_mizuno
+
 ## Files within urdf ...
 
 Please, note that some `.xacro` files have been  taken from the *Mastering ROS for robotics programming book, published by Packt*. All rights reserved
@@ -373,7 +377,7 @@ chmod +x moveit_fixer.py
 
 ```
 
-## References 
+
 
 [1]: https://www.github.com/fedehub/explab_2nd
 [2]: https://moveit.ros.org
@@ -381,3 +385,4 @@ chmod +x moveit_fixer.py
 [4]: https://ros-planning.github.io/moveit_tutorials/
 [5]: https://sir.upc.edu/projects/rostutorials/index.html
 [6]: https://industrial-training-master.readthedocs.io/en/melodic/_source/setup/PC-Setup---ROS.html
+[7]: https://gist.github.com/naoki-mizuno/5e63a13597d5c5fe817c1600b829595e#file-xkcd_colors-urdf-xacro-L1
