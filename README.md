@@ -347,9 +347,13 @@ chmod +x test_cluedo.py
 
 The `.xacro` file will be converted into urdf. Then, the robot's tree hierarchy will be checked and prompted (by means of a pdf file, as shown in the picture)
 
-#anteprima
+<img width="752" alt="Screenshot 2022-07-05 at 11 00 45" src="https://user-images.githubusercontent.com/61761835/177291467-80d9a6c8-5372-4c4f-98dc-30375aec2f86.png">
+
 
 Once the pdf file gets closed, the launch file `model_viewer_cluedo.launch` is triggered and the robot is shown through Rviz 
+
+
+![Screenshot 2022-07-05 at 11 31 48](https://user-images.githubusercontent.com/61761835/177297831-cb08d6fc-7cbd-4ffc-8f80-ab274dd68ca6.png)
 
 
 
