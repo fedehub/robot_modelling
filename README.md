@@ -141,6 +141,18 @@ For cheking the model:
     ```sh
     evince simple_robot.pdf
     ```
+<<<<<<< HEAD
+### from xacro to urdf 
+
+For ending up with a ".urdf" version of our .xacro file, simply run: 
+
+````sh
+rosrun xacro xacro ???.xacro --inorder > ???.urdf
+
+```
+
+where `???` simply stands for the name of the file 
+=======
     
 ### checking the model: in a wink …
 
@@ -150,7 +162,7 @@ For checking the model, and launch the simulation:
 
     ```sh
     chmod +x test.py
-    ```    
+    ```
   
 3. run the script
 
@@ -158,10 +170,11 @@ For checking the model, and launch the simulation:
     ./test.py 
     ```
 
+>>>>>>> 153bdef05ee207aca430ad9828c4bbb9c5f59157
 
 ### using Rviz 
 
-For taking a look at the robot structure by means of RVIZ, please run  
+For taking a look at the robot structure by means of RVIZ, please run:
 
 ```sh
 roslaunch pkgName demo.launch
@@ -215,7 +228,7 @@ Link definition
     <origin rpy="…" xyz="…"/>
   </collision>
  </link>
- ```
+```
 Please note the choice of the link's geometry is up to you!
 
 <details>
@@ -268,7 +281,11 @@ Joint definition
   <dynamics damping … />
   <limit effort … /> 
 </joint>
- ```
+```
+
+## Files within urdf ...
+
+Please, note that some `.xacro` files have been  taken from the *Mastering ROS for robotics programming book, published by Packt*. All rights reserved
 
 # MoveIt configuration
 
