@@ -1,5 +1,17 @@
-# ignoring all .py  files
+# Ignore Mac system files
+.DS_store
 
+# Ignore node_modules folder
+# node_modules
+meshes
+
+# Ignore all text files
+# *.txt
 *.py
 
 
+# Ignore files related to API keys
+# .env
+
+# Ignore SASS config files
+# .sass-cache
