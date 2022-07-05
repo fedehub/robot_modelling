@@ -3,7 +3,6 @@ node [shape=box];
 "base_footprint" [label="base_footprint"];
 "base1_link" [label="base1_link"];
 "base_link" [label="base_link"];
-"bottom_link" [label="bottom_link"];
 "rgbd_camera_link" [label="rgbd_camera_link"];
 "rgbd_camera_depth_frame" [label="rgbd_camera_depth_frame"];
 "rgbd_camera_depth_optical_frame" [label="rgbd_camera_depth_optical_frame"];
@@ -26,8 +25,6 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "base_footprint_joint" -> "base1_link"
 "base1_link" -> "bases_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
 "bases_joint" -> "base_link"
-"base_link" -> "bottom_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
-"bottom_joint" -> "bottom_link"
 "base_link" -> "rgbd_camera_joint" [label="xyz: 0.15 0 0.8 \nrpy: 0 1.309 0"]
 "rgbd_camera_joint" -> "rgbd_camera_link"
 "rgbd_camera_link" -> "rgbd_camera_depth_joint" [label="xyz: 0 0.049 0 \nrpy: 0 -0 0"]

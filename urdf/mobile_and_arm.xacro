@@ -339,40 +339,8 @@
   <wheel fb="front" lr="left" parent="base1_link" translateX="0" translateY="-0.5" flipY="1"/>
   
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-  
-  <joint name="bottom_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="base_link"/>
-    <child link="bottom_link"/>
-  </joint>
-
-  <link name="bottom_link">
-
-    <visual>
-      <origin xyz=" 0 0 -0.04"  rpy="0 0 0"/>
-      <geometry>
-
-	       <box size="1 1 0.02" />
-
-      </geometry>
-      <material name="azure" />
-    </visual>
-
-    <collision>
-      <origin xyz=" 0 0 -0.04"  rpy="0 0 0"/>
-      <geometry>
-	       <box size="1 1 0.02" />
-      </geometry>
-      </collision>>
-
-  </link>
-
-  <gazebo reference="bottom_link">
-    <material>Gazebo/White</material>
-  </gazebo>
 
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <joint name="bases_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
