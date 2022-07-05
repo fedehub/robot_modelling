@@ -139,7 +139,6 @@
   <wheel fb="front" flipY="1" lr="right" parent="base1_link" translateX="0" translateY="0.5"/>
   <wheel fb="front" flipY="1" lr="left" parent="base1_link" translateX="0" translateY="-0.5"/>
   <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
   <joint name="bases_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="base1_link"/>
@@ -148,7 +147,7 @@
   <!-- BASE LINK -->
   <link name="base_link">
     <visual>
-      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <origin rpy="1.570795 0 0" xyz="0 0 0.05"/>
       <!-- rotate PI/2 -->
       <geometry>
         <box size="0.1 0.1 0.1"/>
