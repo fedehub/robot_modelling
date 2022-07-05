@@ -146,13 +146,12 @@ For cheking the model:
 
 For ending up with a ".urdf" version of our .xacro file, simply run: 
 
-````sh
+```sh
 rosrun xacro xacro ???.xacro --inorder > ???.urdf
 
 ```
 
 where `???` simply stands for the name of the file 
-=======
     
 ### checking the model: in a wink …
 
@@ -169,8 +168,6 @@ For checking the model, and launch the simulation:
     ```sh
     ./test.py 
     ```
-
->>>>>>> 153bdef05ee207aca430ad9828c4bbb9c5f59157
 
 ### using Rviz 
 
@@ -286,6 +283,76 @@ Joint definition
 ## Files within urdf ...
 
 Please, note that some `.xacro` files have been  taken from the *Mastering ROS for robotics programming book, published by Packt*. All rights reserved
+
+# Repo's overview 
+
+```sh
+.
+├── CMakeLists.txt
+├── README.md
+├── launch
+│   ├── model_viewer.launch
+│   ├── model_viewer_arm.launch
+│   ├── model_viewer_cluedo.launch
+│   └── model_viewer_mobile.launch
+├── meshes
+│   └── sensors
+│       └── xtion_pro_live
+│           ├── xtion_pro_live.dae 
+│           └── xtion_pro_live.png
+├── moveit_fixer.py
+├── package.xml
+├── test.py
+├── test_arm.py
+├── test_cluedo.py
+├── test_mobile.py
+└── urdf
+    ├── differential_wheeled_base.gv
+    ├── differential_wheeled_base.pdf
+    ├── differential_wheeled_base.urdf
+    ├── differential_wheeled_base.xacro
+    ├── differential_wheeled_robot.gv
+    ├── differential_wheeled_robot.pdf
+    ├── manipulator_arm.gv
+    ├── manipulator_arm.pdf
+    ├── manipulator_arm.urdf
+    ├── manipulator_arm.xacro
+    ├── mobile_and_arm.gv
+    ├── mobile_and_arm.pdf
+    ├── mobile_and_arm.urdf
+    ├── mobile_and_arm.xacro
+    ├── sensors
+    │   ├── xtion_pro_live.gazebo.xacro
+    │   └── xtion_pro_live.urdf.xacro
+    ├── simple_robot.gv
+    ├── simple_robot.pdf
+    ├── simple_robot.urdf
+    └── wheels.urdf.xacro
+
+6 directories, 34 files
+```
+
+
+
+## My model assembled 
+
+My ultimate model, basically consists in a seven degrees of freedom robotic's manipulator, installed upon a differential wheeled platform, capable of carrying the entire structure within the simulated environment. Moreover, a XTION PRO LIVE motion sensor (rgbd camera) is mounted.
+
+By simply running:
+
+```sh
+chmod +x test_cluedo.py
+./test_cluedo.py
+```
+
+The `.xacro` file will be converted into urdf. Then, the robot's tree hierarchy will be checked and prompted (by means of a pdf file, as shown in the picture)
+
+#anteprima
+
+Once the pdf file gets closed, the launch file `model_viewer_cluedo.launch` is triggered and the robot is shown through Rviz 
+
+
+
 
 # MoveIt configuration
 
