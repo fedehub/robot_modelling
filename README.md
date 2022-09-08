@@ -1,5 +1,5 @@
 <img align="left" width="80" height="80" src="https://github.com/fedehub.png" alt="github icon">
-<h1>3D robot modelling</h1>
+<h1>doc. robot modelling</h1>
 
 A brief overview about urdf files, xacro files etc aimed at exploring the robot description. 
 
