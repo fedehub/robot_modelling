@@ -9,11 +9,11 @@ A brief overview about urdf files, xacro files etc aimed at exploring the robot 
 - [x] [Generalitites about Robot modelling using URDF](#robmod)
 - [x] Create a pkg for the robot description
 - [x] Generalities about xacro files
-- [ ] Creating a robot description for a seven DOF robot manipulator
-- [ ] Working with the joint_state_publisher and robot_state_publisher for
-- [ ] Creating the robot description for a differential wheeled robot
-- [ ] Creating the robot description for the [explab_2nd][1]
-  - [ ] Using the ROS MoveIt! and navigation stack for the assignment 
+- [x] Creating a robot description for a seven DOF robot manipulator
+- [x] Working with the joint_state_publisher and robot_state_publisher for
+- [x] Creating the robot description for a differential wheeled robot
+- [x] Creating the robot description for the [explab_2nd][1]
+  - [x] Using the ROS MoveIt! and navigation stack for the assignment 
 
 ## Main packages for robot modelling
 
